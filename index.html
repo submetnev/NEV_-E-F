@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas Internos NEV/USP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Imagem repetida em mosaico por todo o fundo */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.imgur.com/Kg7VkBm.jpeg');
+            background-repeat: repeat; /* Repete na horizontal e vertical por toda a página */
+            background-position: center;
+            background-size: 240px auto; /* Tamanho proporcional do padrão */
+            opacity: 0.20; /* Levemente mais transparente e elegante */
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Container Principal Estilizado e Moderno */
+        .container {
+            background: rgba(255, 255, 255, 0.88); 
+            padding: 36px 28px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 580px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #0a2f5a;
+            margin-bottom: 6px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        p.subtitle {
+            font-size: 15px;
+            color: #475569;
+            margin-bottom: 30px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        /* Cartões dos Sistemas */
+        .system-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 95px;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #cbd5e1;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #0f172a;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.35;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+        }
+
+        .system-card:last-child:nth-child(odd) {
+            grid-column: 1 / -1;
+        }
+
+        .system-card:hover {
+            background-color: #0a2f5a;
+            color: #ffffff;
+            border-color: #0a2f5a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(10, 47, 90, 0.22);
+        }
+
+        /* Assinatura no canto inferior direito */
+        .footer-credits {
+            position: fixed;
+            bottom: 16px;
+            right: 20px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #0a2f5a;
+            opacity: 0.25; /* Suave/quase invisível por padrão */
+            transition: all 0.3s ease;
+            user-select: none;
+            cursor: default;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 4px 10px;
+            border-radius: 8px;
+            backdrop-filter: blur(4px);
+        }
+
+        .footer-credits:hover {
+            opacity: 1; /* Aparente e visível ao passar o mouse */
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 550px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .system-card:last-child:nth-child(odd) {
+                grid-column: auto;
+            }
+            .system-card {
+                height: 80px;
+                font-size: 15px;
+            }
+            body::before {
+                background-size: 180px auto;
+            }
+            .footer-credits {
+                font-size: 13px;
+                bottom: 10px;
+                right: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Sistemas Internos</h1>
+        <p class="subtitle">Núcleo de Estudos da Violência - USP</p>
+        
+        <div class="grid-container">
+            <a href="https://pythonanywhere.com" target="_blank" class="system-card">CadNEV</a>
+            <a href="https://github.io_" target="_blank" class="system-card">SubmetNEV</a>
+            <a href="https://pythonanywhere.com" target="_blank" class="system-card">Acervo Interno NEV</a>
+            <a href="https://pythonanywhere.com" target="_blank" class="system-card">Estações de Trabalho</a>
+            <a href="https://jotform.com" target="_blank" class="system-card">Reserva das Salas de Reuniões</a>
+        </div>
+    </div>
+
+    <!-- Rodapé interativo com transição no hover -->
+    <div class="footer-credits">
+        Desenvolvido por Emerson Fragoso
+    </div>
+
+</body>
+</html>
