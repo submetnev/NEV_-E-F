@@ -10,7 +10,7 @@
   (function () {
     try {
       var t = localStorage.getItem('nev-theme');
-      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      if (!t) t = 'dark';   // ← padrão agora é SEMPRE escuro
       document.documentElement.setAttribute('data-theme', t);
     } catch (e) {}
   })();
